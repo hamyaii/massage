@@ -215,7 +215,7 @@ export default function ServicesList({ onSelectTreatment }: ServicesListProps) {
                         className="bg-transparent hover:bg-[#2D2926] text-[#2D2926] hover:text-white border border-[#2D2926] text-[10px] font-bold uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer shadow-xs"
                         id={`btn-select-book-${treatment.id}`}
                       >
-                        Telefonisch anfragen
+                        Auswählen & Buchen
                       </button>
                     </div>
                   </div>

@@ -1,13 +1,7 @@
 import { MapPin, Phone, Clock, Mail, ExternalLink, MessageCircle, Compass } from "lucide-react";
 import { INFO_CONTACT } from "../data";
-import { Treatment } from "../types";
 
-export interface ContactAndMapProps {
-  selectedTreatment?: Treatment | null;
-  onClearSelectedTreatment?: () => void;
-}
-
-export default function ContactAndMap({ selectedTreatment, onClearSelectedTreatment }: ContactAndMapProps) {
+export default function ContactAndMap() {
   const gmapsLink = "https://www.google.com/maps/place/Kosmetik-+Massagestudio+Suchada+Tanomvet/@49.5367631,8.3597042,711m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47963295cfc1fa21:0x4c1b54dd3ca21356!8m2!3d49.5367631!4d8.3597042!16s%2Fg%2F1thpvsdw?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D";
 
   return (
@@ -26,37 +20,12 @@ export default function ContactAndMap({ selectedTreatment, onClearSelectedTreatm
           </p>
         </div>
 
-        {selectedTreatment && (
-          <div className="mb-10 p-6 bg-white border border-[#2D2926]/10 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs animate-fade-in text-left">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-xl shrink-0 mt-0.5">
-                <Compass className="w-5 h-5" />
-              </div>
-              <div className="space-y-1">
-                <span className="block text-[9px] font-bold uppercase tracking-wider text-[#8C7E6A]">Gewünschte Behandlung:</span>
-                <span className="block font-serif text-lg font-bold text-[#2D2926]">
-                  {selectedTreatment.name} ({selectedTreatment.durationMinutes} Min. • {selectedTreatment.price} €)
-                </span>
-                <p className="text-xs text-[#2D2926]/75 font-light leading-relaxed max-w-xl">
-                  Rufen Sie uns jetzt direkt unter <a href="tel:+4962334629988" className="font-bold text-[#2D2926] hover:text-[#8C7E6A] underline">06233 4629988</a> an, um diesen persönlichen Wohlfühltermin mit Suchada abzustimmen!
-                </p>
-              </div>
-            </div>
-            <button 
-              onClick={onClearSelectedTreatment}
-              className="px-6 py-2.5 bg-[#EAE4DD] hover:bg-[#8C7E6A] text-[#2D2926] hover:text-white text-[10px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 shrink-0 cursor-pointer shadow-xs"
-            >
-              Auswahl aufheben
-            </button>
-          </div>
-        )}
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Business Hours & Direct Contacts List - Col 5 */}
           <div className="lg:col-span-12 xl:col-span-5 space-y-6 flex flex-col justify-between">
             
-            <div className="bg-white border border-[#2D2926]/10 rounded-3xl p-8 space-y-6 shadow-xs text-left grow">
+            <div className="bg-white border border-[#2D2926]/10 rounded-none p-8 space-y-6 shadow-none text-left grow">
               
               {/* Studio Name */}
               <div className="border-b border-[#2D2926]/10 pb-4 space-y-1">
@@ -69,7 +38,7 @@ export default function ContactAndMap({ selectedTreatment, onClearSelectedTreatm
                 
                 {/* Address */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2 sm:p-2.5 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-xl shrink-0">
+                  <div className="p-2 sm:p-2.5 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-none shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -77,7 +46,7 @@ export default function ContactAndMap({ selectedTreatment, onClearSelectedTreatm
                     <address className="text-sm not-italic font-light text-[#2D2926] mt-0.5">
                       {INFO_CONTACT.address}
                     </address>
-                    <span className="block text-[10px] text-[#2D2926] mt-1.5 font-bold bg-[#8C7E6A]/10 px-2.5 py-1 rounded-full inline-block uppercase tracking-wider">
+                    <span className="block text-[10px] text-[#2D2926] mt-1.5 font-bold bg-[#8C7E6A]/10 px-2 py-0.5 rounded-none inline-block uppercase tracking-wider">
                       {INFO_CONTACT.parking}
                     </span>
                   </div>
@@ -85,7 +54,7 @@ export default function ContactAndMap({ selectedTreatment, onClearSelectedTreatm
 
                 {/* Telephone */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2 sm:p-2.5 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-xl shrink-0">
+                  <div className="p-2 sm:p-2.5 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-none shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -101,7 +70,7 @@ export default function ContactAndMap({ selectedTreatment, onClearSelectedTreatm
 
                 {/* Email */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2 sm:p-2.5 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-xl shrink-0">
+                  <div className="p-2 sm:p-2.5 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-none shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -134,27 +103,29 @@ export default function ContactAndMap({ selectedTreatment, onClearSelectedTreatm
             </div>
 
             {/* Practical Buttons box */}
-            <div className="bg-[#2D2926] text-[#FDFBF7] p-6 rounded-3xl space-y-4 shadow-xs text-left">
+            <div className="bg-[#2D2926] text-[#FDFBF7] p-6 rounded-none space-y-4 shadow-none text-left">
               <h4 className="font-serif text-lg font-medium tracking-wide flex items-center gap-2">
-                <Phone className="w-5 h-5 text-[#8C7E6A]" />
-                <span>Persönlicher Anruf & Beratung</span>
+                <MessageCircle className="w-5 h-5 text-[#8C7E6A]" />
+                <span>Schnelle Absprache via WhatsApp</span>
               </h4>
               <p className="text-xs text-[#FDFBF7]/85 font-light leading-relaxed">
-                Sie möchten spontan einen Termin abstimmen oder einen bestehenden Termin verschieben? Kontaktieren Sie Suchada einfach direkt per Anruf. We are happy to talk to you!
+                Sie möchten spontan anfragen oder einen bestehenden Termin verschieben? Kontaktieren Sie Suchada einfach schnell via WhatsApp-Nachricht.
               </p>
               <a 
-                href="tel:+4962334629988"
+                href={`https://wa.me/4917643288192?text=Hallo%20Suchada,%20ich%20hätte%20gerne%20einen%20Termin%20für...`}
+                target="_blank" 
+                rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-white hover:bg-[#8C7E6A] text-[#2D2926] hover:text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-full shadow-xs transition-all duration-300 cursor-pointer w-full justify-center"
-                id="phone-call-btn"
+                id="whatsapp-chat-btn"
               >
-                <span>Studio jetzt anrufen</span>
+                <span>WhatsApp Chat starten</span>
               </a>
             </div>
 
           </div>
 
           {/* Map display & Google Directions - Col 7 */}
-          <div className="lg:col-span-12 xl:col-span-7 flex flex-col justify-between bg-white border border-[#2D2926]/10 rounded-3xl overflow-hidden shadow-xs">
+          <div className="lg:col-span-12 xl:col-span-7 flex flex-col justify-between bg-white border border-[#2D2926]/10 rounded-none overflow-hidden shadow-none">
             
             {/* Elegant Custom Vector Map matching coordinates */}
             <div className="relative bg-[#FDFBF7] h-96 sm:h-[450px] overflow-hidden flex items-center justify-center group" id="leaflet-svg-map">
@@ -214,14 +185,14 @@ export default function ContactAndMap({ selectedTreatment, onClearSelectedTreatm
 
                 {/* Studio Label tooltip on map */}
                 <g transform="translate(515, 255)">
-                  <rect x="-105" y="0" width="210" height="35" fill="#2D2926" rx="6" />
+                  <rect x="-105" y="0" width="210" height="35" fill="#2D2926" rx="0" />
                   <path d="M0 35 L-6 35 L0 41 L6 35 Z" fill="#2D2926" />
                   <text x="0" y="21" fill="#FDFBF7" fontSize="11" fontFamily="Playfair Display" fontWeight="bold" textAnchor="middle" letterSpacing="0.05em">Suchada Tanomvet</text>
                 </g>
               </svg>
 
               {/* Hover Overlay Instruction Card */}
-              <div className="absolute inset-x-4 bottom-4 bg-[#2D2926]/95 backdrop-blur-md rounded-2xl p-5 text-left border border-[#2D2926]/10 shadow-xs">
+              <div className="absolute inset-x-4 bottom-4 bg-[#2D2926]/95 backdrop-blur-md rounded-none p-5 text-left border border-[#2D2926]/10 shadow-none">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <div className="space-y-1">
                     <span className="block text-[8px] uppercase tracking-widest text-[#8C7E6A] font-bold">Exakte Position (49.53676, 8.35970)</span>

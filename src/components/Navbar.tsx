@@ -28,7 +28,7 @@ export default function Navbar({ onNavigate, onBookNow }: NavbarProps) {
       {/* Top Notification Bar */}
       <div className="bg-[#2D2926] text-[#FDFBF7] text-[10px] uppercase tracking-widest py-2 px-4 text-center flex items-center justify-center gap-2 font-medium">
         <Sparkles className="w-3 h-3 text-[#8C7E6A] animate-pulse" />
-        <span>Traditionelle Thailändische Massagen & Kosmetik – Rufen Sie uns jetzt an unter: 06233 4629988</span>
+        <span>Gutscheine online oder im Studio erhältlich – Perfekt zum Verschenken!</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

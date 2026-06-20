@@ -329,7 +329,7 @@ export default function TreatmentMatcher({ onRecommend }: TreatmentMatcherProps)
                     id="btn-recommend-book"
                   >
                     <Sparkles className="w-4 h-4 text-[#8C7E6A]" />
-                    <span>Telefonisch anfragen</span>
+                    <span>Behandlung buchen</span>
                   </button>
                 </div>
               </div>

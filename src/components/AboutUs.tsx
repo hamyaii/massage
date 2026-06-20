@@ -27,7 +27,7 @@ export default function AboutUs() {
           <div className="lg:col-span-5 relative space-y-6">
             
             {/* Visual Frame */}
-            <div className="relative rounded-3xl overflow-hidden border border-[#2D2926]/10 shadow-xs group">
+            <div className="relative rounded-none overflow-hidden border border-[#2D2926]/10 shadow-none group">
               <img
                 src={spaHeroImg}
                 alt="Suchada Tanomvet Kosmetik und Massage Frankenthal"
@@ -43,8 +43,8 @@ export default function AboutUs() {
             </div>
 
             {/* Certifications Card Badge overlaid */}
-            <div className="absolute -bottom-6 -right-6 bg-[#FDFBF7] border border-[#2D2926]/15 rounded-2xl p-5 shadow-xs max-w-xs shrink-0 z-10 hidden sm:flex items-start gap-3">
-              <div className="p-2.5 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-xl mt-0.5">
+            <div className="absolute -bottom-6 -right-6 bg-[#FDFBF7] border border-[#2D2926]/15 rounded-none p-5 shadow-none max-w-xs shrink-0 z-10 hidden sm:flex items-start gap-3">
+              <div className="p-2 bg-[#8C7E6A]/10 text-[#8C7E6A] rounded-none mt-0.5">
                 <Award className="w-5 h-5" />
               </div>
               <div className="space-y-1 text-left">

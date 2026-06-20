@@ -6,6 +6,7 @@ import ServicesList from "./components/ServicesList";
 import TreatmentMatcher from "./components/TreatmentMatcher";
 import AboutUs from "././components/AboutUs";
 import Testimonials from "./components/Testimonials";
+import BookingForm from "./components/BookingForm";
 import ContactAndMap from "./components/ContactAndMap";
 import { Treatment } from "./types";
 import { INFO_CONTACT } from "./data";
@@ -28,9 +29,7 @@ export default function App() {
   }, []);
 
   const handleNavigate = (sectionId: string) => {
-    // Redirect booking navigation requests straight to the contact section
-    const targetId = sectionId === "bookings" ? "contact" : sectionId;
-    const el = document.getElementById(targetId);
+    const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -38,9 +37,9 @@ export default function App() {
 
   const handleSelectTreatmentToBook = (treatment: Treatment) => {
     setSelectedTreatment(treatment);
-    // Smoothly scroll down to the contact section
+    // Smoothly scroll down to the appointments / bookings section
     setTimeout(() => {
-      handleNavigate("contact");
+      handleNavigate("bookings");
     }, 100);
   };
 
@@ -49,7 +48,7 @@ export default function App() {
   };
 
   const handleBookNowCTA = () => {
-    handleNavigate("contact");
+    handleNavigate("bookings");
   };
 
   const scrollToTop = () => {
@@ -60,13 +59,13 @@ export default function App() {
     <div className="min-h-screen bg-[#FDFBF7] flex flex-col text-[#2D2926] font-sans antialiased text-left leading-relaxed">
       {/* 1. Header Navigation */}
       <Navbar 
-         onNavigate={handleNavigate} 
-         onBookNow={handleBookNowCTA} 
+        onNavigate={handleNavigate} 
+        onBookNow={handleBookNowCTA} 
       />
 
       {/* 2. Main Page Content Sections */}
       <main className="flex-grow">
-         
+        
         {/* Hero Section */}
         <Hero 
           onExploreTreatments={() => handleNavigate("services")} 
@@ -90,11 +89,14 @@ export default function App() {
         {/* Guest Reviews Carousel */}
         <Testimonials />
 
-        {/* Contacts, Opening Hours timetable and custom Vector map with selected treatment info */}
-        <ContactAndMap 
-          selectedTreatment={selectedTreatment}
+        {/* Booking & Personal appointment selection Form */}
+        <BookingForm 
+          selectedTreatment={selectedTreatment} 
           onClearSelectedTreatment={handleClearSelectedTreatment}
         />
+
+        {/* Contacts, Opening Hours timetable and custom Vector map */}
+        <ContactAndMap />
 
       </main>
 
@@ -149,8 +151,8 @@ export default function App() {
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleNavigate("contact")} className="hover:text-[#8C7E6A] transition-colors cursor-pointer text-[#8C7E6A] font-medium">
-                    Jetzt anrufen & buchen
+                  <button onClick={() => handleNavigate("bookings")} className="hover:text-[#8C7E6A] transition-colors cursor-pointer text-[#8C7E6A] font-medium">
+                    Terminanfrage senden
                   </button>
                 </li>
               </ul>
@@ -178,21 +180,21 @@ export default function App() {
               </div>
             </div>
 
-            {/* Footer Column 4: Booking Termine info */}
+            {/* Footer Column 4: Gutscheine Info card */}
             <div className="space-y-4">
               <h4 className="font-serif text-sm font-semibold text-white tracking-wider uppercase flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-[#8C7E6A]" />
-                <span>Termin vereinbaren</span>
+                <Gift className="w-4 h-4 text-[#8C7E6A]" />
+                <span>Geschenk-Gutscheine</span>
               </h4>
               <p className="text-[11px] text-[#FDFBF7]/60 font-light leading-relaxed">
-                Um Ihnen Ihren Wunschtermin zu sichern und eine entspannte Atmosphäre zu garantieren, bitten wir um vorherige Kontaktaufnahme. Rufen Sie uns einfach an!
+                Schenken Sie Wohlbefinden und Tiefenentspannung. Unsere liebevoll gestalteten Gutscheine sind für alle Wellnessbehandlungen oder als Wertgutschein direkt im Studio oder per Post erhältlich.
               </p>
-              <a
-                href="tel:+4962334629988"
-                className="bg-[#8C7E6A]/15 hover:bg-[#8C7E6A] border border-[#8C7E6A]/40 text-[#8C7E6A] hover:text-[#2D2926] text-[10px] uppercase font-bold tracking-widest px-4 py-3 rounded-full transition-all duration-300 cursor-pointer w-full text-center block"
+              <button
+                onClick={handleBookNowCTA}
+                className="bg-[#8C7E6A]/15 hover:bg-[#8C7E6A] border border-[#8C7E6A]/40 text-[#8C7E6A] hover:text-[#2D2926] text-[10px] uppercase font-bold tracking-widest px-4 py-2.5 rounded-none transition-all duration-200 cursor-pointer w-full text-center"
               >
-                Studio jetzt anrufen
-              </a>
+                Gutschein anfragen
+              </button>
             </div>
 
           </div>
