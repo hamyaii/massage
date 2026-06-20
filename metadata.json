@@ -1,0 +1,6 @@
+{
+  "name": "Kosmetik- & Massagestudio Suchada Tanomvet",
+  "description": "Elegante und moderne Website für das Kosmetik- und Massagestudio Suchada Tanomvet in Frankenthal (Pfalz). Entdecken Sie entspannende Wellnessmassagen, professionelle Kosmetikbehandlungen und buchen Sie Ihren Wohlfühltermin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
